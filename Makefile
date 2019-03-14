@@ -5,7 +5,7 @@
 # make CPP=/home/valmat/work/git/clang-contracts/build/bin/clang++
 # 
 
-CPP_FLAGS  = -std=c++2a -pedantic -Wall -Wextra -Wsequence-point 
+CPP_FLAGS  = -std=c++2a -pedantic -Wall -Wextra
 
 
 .PHONY: clean all
@@ -20,7 +20,14 @@ bin/example5.bin \
 bin/example6-inheritance.bin \
 bin/example7-axiom-1.bin \
 bin/example7-axiom-2.bin \
-bin/example8-handling.bin 
+bin/example8-handling.bin \
+bin/example9-off.bin \
+bin/example9-default.bin \
+bin/example9-audit.bin \
+bin/example10-off.bin \
+bin/example10-default.bin \
+bin/example10-audit.bin \
+bin/example11.bin
 	@echo
 	@echo "\033[1;34mBuild complite \033[0m"
 
@@ -51,6 +58,28 @@ bin/example7-axiom-2.bin: example7-axiom.cpp
 
 bin/example8-handling.bin: example8-handling.cpp
 	${CPP} ${CPP_FLAGS} -o bin/example8-handling.bin example8-handling.cpp -contract-violation-handler=violation_handler -fcontinue-after-violation
+
+bin/example9-off.bin: example9.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example9-off.bin example9.cpp -build-level=off -contract-violation-handler=violation_handler -fcontinue-after-violation
+
+bin/example9-default.bin: example9.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example9-default.bin example9.cpp -build-level=default -contract-violation-handler=violation_handler -fcontinue-after-violation
+
+bin/example9-audit.bin: example9.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example9-audit.bin example9.cpp -build-level=audit -contract-violation-handler=violation_handler -fcontinue-after-violation
+
+bin/example10-off.bin: example10.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example10-off.bin example10.cpp -build-level=off -contract-violation-handler=violation_handler -fcontinue-after-violation
+
+bin/example10-default.bin: example10.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example10-default.bin example10.cpp -build-level=default -contract-violation-handler=violation_handler -fcontinue-after-violation
+
+bin/example10-audit.bin: example10.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example10-audit.bin example10.cpp -build-level=audit -contract-violation-handler=violation_handler -fcontinue-after-violation
+
+bin/example11.bin: example11.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example11.bin example11.cpp -contract-violation-handler=violation_handler -fcontinue-after-violation
+
 
 clean:
 	rm -f bin/*.bin

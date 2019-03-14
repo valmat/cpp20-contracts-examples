@@ -1,5 +1,4 @@
 #include "violation_handler.h"
-#include <iostream>
 
 int foo(int n)
     [[expects: n < 10]]
@@ -9,7 +8,6 @@ int foo(int n)
 
 int main()
 {
-    foo(100);
+    foo(100); // <-- contract violation
     return 0;
 }
-
