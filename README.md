@@ -1,4 +1,4 @@
-# cpp20-contracts-examples
+# C++20 contracts examples
 
 
 Clone and build experemental compiler from  *ARCOS research group*
@@ -20,3 +20,4 @@ git clone https://github.com/valmat/cpp20-contracts-examples/
 cd cpp20-contracts-examples
 make CPP=/path/to/clang++
 ```
+When `/path/to/clang++` is the path to binary `clang++` from clang-contracts repo.

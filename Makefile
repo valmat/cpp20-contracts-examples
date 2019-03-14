@@ -8,13 +8,18 @@ CPP_FLAGS  = -std=c++2a -pedantic -Wall -Wextra -Wsequence-point
 .PHONY: clean all
 
 
-all: bin/example1.bin
+all: \
+bin/example1.bin \
+bin/example2.bin
 	@echo
 	@echo "\033[1;34mBuild complite \033[0m"
 
 
 bin/example1.bin: example1.cpp
 	${CPP} ${CPP_FLAGS} -o bin/example1.bin example1.cpp
+
+bin/example2.bin: example2.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example2.bin example2.cpp
 
 	
 clean:
