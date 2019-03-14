@@ -21,3 +21,7 @@ cd cpp20-contracts-examples
 make CPP=/path/to/clang++
 ```
 When `/path/to/clang++` is the path to binary `clang++` from clang-contracts repo.
+
+
+
+These examples are prepared for my article  https://habr.com/ru/post/443766/
