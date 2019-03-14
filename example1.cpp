@@ -1,4 +1,3 @@
-#include <iostream>
 
 int foo(int x, int y)
     [[ expects: x > y ]]   // precondition  #1
@@ -12,9 +11,9 @@ int foo(int x, int y)
 
 int main()
 {
-    std::cout << foo(117, 20) << std::endl;
-    std::cout << foo(10,  20) << std::endl; // <-- contract violation #1
-    std::cout << foo(100, -5) << std::endl; // <-- contract violation #2
+    foo(117, 20);
+    foo(10,  20); // <-- contract violation #1
+    foo(100, -5); // <-- contract violation #2
 
     return 0;
 }

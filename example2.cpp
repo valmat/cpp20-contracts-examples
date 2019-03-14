@@ -1,5 +1,3 @@
-#include <iostream>
-
 struct X
 {
 protected:
@@ -14,8 +12,7 @@ public:
 
 int main()
 {
-    std::cout << X().foo(10) << std::endl;
+    X().foo(10);
 
     return 0;
 }
-
