@@ -4,13 +4,14 @@ CPP   	   = /path/to/your/clang-contracts/build/bin/clang++
 CPP_FLAGS  = -std=c++2a -pedantic -Wall -Wextra -Wsequence-point 
 
 
-
 .PHONY: clean all
 
 
 all: \
 bin/example1.bin \
-bin/example2.bin
+bin/example2.bin \
+bin/example3.bin \
+bin/example4.bin 
 	@echo
 	@echo "\033[1;34mBuild complite \033[0m"
 
@@ -20,6 +21,12 @@ bin/example1.bin: example1.cpp
 
 bin/example2.bin: example2.cpp
 	${CPP} ${CPP_FLAGS} -o bin/example2.bin example2.cpp
+
+bin/example3.bin: example3.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example3.bin example3.cpp
+
+bin/example4.bin: example4.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example4.bin example4.cpp
 
 	
 clean:
