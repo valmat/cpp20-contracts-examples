@@ -1,6 +1,10 @@
+# Usage:
+# 
+# make CPP=/path/to/your/clang-contracts/build/bin/clang++
+# for example:
+# make CPP=/home/valmat/work/git/clang-contracts/build/bin/clang++
+# 
 
-# CPP   	   = /home/valmat/work/git/clang-contracts/build/bin/clang++
-CPP   	   = /path/to/your/clang-contracts/build/bin/clang++
 CPP_FLAGS  = -std=c++2a -pedantic -Wall -Wextra -Wsequence-point 
 
 
@@ -15,8 +19,8 @@ bin/example4.bin \
 bin/example5.bin \
 bin/example6-inheritance.bin \
 bin/example7-axiom-1.bin \
-bin/example7-axiom-2.bin 
-
+bin/example7-axiom-2.bin \
+bin/example8-handling.bin 
 	@echo
 	@echo "\033[1;34mBuild complite \033[0m"
 
@@ -39,14 +43,14 @@ bin/example5.bin: example5.cpp
 bin/example6-inheritance.bin: example6-inheritance.cpp
 	${CPP} ${CPP_FLAGS} -o bin/example6-inheritance.bin example6-inheritance.cpp
 
-
 bin/example7-axiom-1.bin: example7-axiom.cpp
 	${CPP} ${CPP_FLAGS} -o bin/example7-axiom-1.bin example7-axiom.cpp -axiom-mode=off
 
 bin/example7-axiom-2.bin: example7-axiom.cpp
 	${CPP} ${CPP_FLAGS} -o bin/example7-axiom-2.bin example7-axiom.cpp -axiom-mode=on
 
+bin/example8-handling.bin: example8-handling.cpp
+	${CPP} ${CPP_FLAGS} -o bin/example8-handling.bin example8-handling.cpp -contract-violation-handler=violation_handler -fcontinue-after-violation
 
-	
 clean:
 	rm -f bin/*.bin
