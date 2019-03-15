@@ -1,7 +1,6 @@
-
 int foo(int x, int y)
-    [[ expects: x > y ]]   // precondition  #1
-    [[ expects: y > 0 ]]   // precondition  #2
+    [[ expects:   x > y ]] // precondition  #1
+    [[ expects:   y > 0 ]] // precondition  #2
     [[ ensures r: r < x ]] // postcondition #3
 {
     int z = (x - x%y) / y;

@@ -4,7 +4,7 @@ protected:
     int m = 5;
 public:
     int foo(int n)
-        [[expects: n < m]]
+        [[ expects: n < m ]]
     {
         return n*n;
     }
