@@ -1,6 +1,6 @@
 struct X
 {
-protected:
+// protected:
     int m = 5;
 public:
     int foo(int n)
